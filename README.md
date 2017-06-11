@@ -1,5 +1,7 @@
 # vue-framer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/vue-framer.svg)](https://greenkeeper.io/)
+
 > Render Framer project as Vue components
 
 ## Vue render and API
