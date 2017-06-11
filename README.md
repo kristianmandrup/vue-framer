@@ -2,12 +2,21 @@
 
 > Render Framer project as Vue components
 
+## Framer.js
+
+- [Framer docs](https://framer.com/docs/)
+- [Layer](https://framer.com/docs/#layer.layer)
+
 ## Vue render and API
 
 - [All about render](https://vuejs.org/v2/guide/render-function.html)
 - [Vue API](https://vuejs.org/v2/api/)
 - [Vue NativeScript](https://www.nativescript.org/blog/a-new-vue-for-nativescript)
 - [Generate Vue component from JSON](https://medium.com/@harin76/generate-vue-js-components-from-a-json-javascript-dom-structure-a76534478d15)
+
+### Vue Style guide
+
+- [Vue Style guide](https://github.com/pablohpsilva/vuejs-component-style-guide)
 
 ### Custom elements
 
@@ -22,6 +31,7 @@
 ### Dynamic components
 
 - [dynamic components](https://coligo.io/dynamic-components-in-vuejs/)
+- [jsFiddle demo](https://jsfiddle.net/coligo/mfxb9aeh/)
 
 ### Class components
 
