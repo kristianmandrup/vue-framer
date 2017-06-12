@@ -24,7 +24,7 @@ Component.registerHooks([
 // example: https://github.com/vuejs/vue-class-component/tree/master/example
 @Component({
   props: {
-    components: {
+    children: {
       type: Array,
       default: []
     },
@@ -50,12 +50,13 @@ export default class ContainerComponent extends Vue {
     position: absolute
   }
 
-  // todo: use list
+  // todo: use Adapter approach
+  // https://jsfiddle.net/simplesmiler/v6w8tzae/
   get template() {
     `<div :style="styleData">
-      <ul>
-        <li v-for="comp in components">
-          <component :is="comp.type" :cdata="comp.data" keep-alive></component>
+      <ul class="child-container">
+        <li v-for="child in children">
+          <component :is="child.type" :cdata="child.data" keep-alive></component>
         <li>
       <ul>
     </div>`
@@ -63,7 +64,7 @@ export default class ContainerComponent extends Vue {
 
   data() {
     return {
-      components: [{
+      children: [{
         type: 'fr-layer',
         data: {
           x: 10,

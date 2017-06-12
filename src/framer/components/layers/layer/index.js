@@ -1,15 +1,13 @@
 import ContainerComponent from './component'
 import LeafLayer from '../leaf'
-
-function isLayer(obj) {
-  return obj instanceof Layer
-}
+import {
+  isLayer
+} from '../utils'
 
 // Framer Layer to Vue component wrapper
 export class Layer extends LeafLayer {
   constructor(config = {}) {
     super(config)
-    this.configure()
   }
 
   addChild(child) {

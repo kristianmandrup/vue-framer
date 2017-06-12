@@ -1,9 +1,6 @@
 import Component from 'vue-class-component'
 @Component({
   props: {
-    cdata: {
-      type: Object
-    },
     src: {
       type: String
     },

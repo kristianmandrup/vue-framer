@@ -30,6 +30,7 @@
   "dependencies": {
     "bigscreen": "^2.0.5",
     "color": "^1.0.3",
+    "es6-mixins": "^1.0.2",
     "gsap": "^1.19.1",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
