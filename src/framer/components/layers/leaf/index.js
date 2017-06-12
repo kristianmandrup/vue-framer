@@ -33,7 +33,7 @@ export class LeafLayer {
 
   // register instance as a (global, reusable) component
   register() {
-    // Vue.component(this.name, this)
+    Vue.component(this.name, this)
   }
 
   createComponent() {
