@@ -1,62 +1,100 @@
+import Vue from 'vue'
 import Component from 'vue-class-component'
+// import {
+//   createDecorator
+// } from 'vue-class-component'
+
+// Register router hooks
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteLeave'
+])
+
+// Style binding
+// https://vuejs.org/v2/guide/class-and-style.html
+// Inline styles
+// https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles
+
+// data, render and all Vue lifecycle hooks can be directly declared
+// as class member methods as well
+
+// For detailed inner workings:
+// - https://github.com/vuejs/vue-class-component/blob/master/test/test.ts
+
+// example: https://github.com/vuejs/vue-class-component/tree/master/example
 @Component({
   props: {
-    cdata: {
-      type: Object
+    components: {
+      type: Array,
+      default: []
     },
-    src: {
-      type: String
+    x: {
+      type: Number,
+      default: 0
+    },
+    y: {
+      type: Number,
+      default: 0
     },
     style: {
       type: Object
-    },
-    width: {
-      type: Number,
-      default: 100
-    },
-    height: {
-      type: Number,
-      default: 100
     }
   }
 })
 // See Component style guide
 // https://github.com/pablohpsilva/vuejs-component-style-guide#how-6
-export default class ImageComponent extends Vue {
-  name = 'ImageComponent'
+export default class ContainerComponent extends Vue {
+  name = 'ContainerComponent'
+
   defaultStyle = {
     position: absolute
   }
 
+  // todo: use list
   get template() {
     `<div :style="styleData">
-      <img v-if="imageSrc" width="100%" height="100%" :src="imageSrc"></img>
-      <span v-if="text" :style="text.style">{{text.caption}}</img>
+      <ul>
+        <li v-for="comp in components">
+          <component :is="comp.type" :cdata="comp.data" keep-alive></component>
+        <li>
+      <ul>
     </div>`
   }
 
   data() {
     return {
-      text: {
-        imageSrc: this.defaultImage,
-        caption: 'Hello World',
-        style: {
-          font: 'bold',
-          color: 'blue'
+      components: [{
+        type: 'fr-layer',
+        data: {
+          x: 10,
+          y: 20,
+          height: 100,
+          width: 200
         }
-      }
+      }]
     }
   }
 
-  get imageSrc() {
-    return this.src || this.defaultImage
-  }
-
-  get defaultImage() {
-    return `http://lorempixel.com/400/200/${this.width}/${this.height}`
-  }
-
+  // computed
   get styleData() {
     return Object.assign({}, this.defaultStyle, this.style)
+  }
+
+  beforeRouteEnter() {
+    console.log('beforeRouteEnter')
+  }
+
+  beforeRouteLeave() {
+    console.log('beforeRouteLeave')
+  }
+
+  // lifecycle hooks
+  created() {}
+
+  mounted() {}
+
+  // methods
+  greet() {
+    alert('greeting: ' + this.msg)
   }
 }
